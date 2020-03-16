@@ -1,9 +1,9 @@
 # TS-lab3
 
-- TS-lab3/app/src/main/java/com/example/authentification/activities/RegisterActivity.java == **REGISTER FORMULAR PATH**
+[**REGISTER FORMULAR PATH**](https://github.com/danieliepp/TS-lab3/blob/master/app/src/main/java/com/example/authentification/activities/RegisterActivity.java)
 
 
-- TS-lab3/app/src/main/java/com/example/authentification/activities/AddParticipantActivity.java == **ADD PARTICIPANT FORMULAR PATH**
+[**ADD PARTICIPANT FORMULAR PATH**](https://github.com/danieliepp/TS-lab3/blob/master/app/src/main/java/com/example/authentification/activities/AddParticipantActivity.java)
 
 ## USED DATABASE (MONGODB) 
 [DATABASE SNAPSHOT](https://ibb.co/vdqyT9h)\
