@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Authentification</string>
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <string name="application_name">Application Name</string>
+    <string name="navbar_open">Menu</string>
+    <string name="navbar_tr_close">Tournaments</string>
+    <string name="tournaments">Tournaments</string>
+    <string name="participants">Participants</string>
+    <string name="profile">Profile</string>
+    <string name="log_out">Log out</string>
+    <string name="add_participant">add_participant</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="coach">Coach</string>
+    <string name="choose_country">Choose country</string>
+    <string name="birthday">Birthday</string>
+    <string name="weight">Weight</string>
+    <string name="gender">Gender</string>
+    <string name="age">Age</string>
+    <string name="addparticipant">Add participant</string>
+    <string name="club">Club</string>
+    <string name="empty_field_error">This field has to be filled</string>
+    <string name="club_error">Federation/DoJo has to contain only letters, digits and/or \"-,./\" symbols</string>
+    <string name="club_error_empty">Federation/DoJo has to be filled</string>
+    <string name="name_empty">Error: Field Name isn\\\'t filled!</string>
+    <string name="name_error">Error: This name is invalid. Try another one!</string>
+    <string name="coach_name_error">Error: Coach name is invalid. It must contain only letters</string>
+    <string name="cancel">Cancel</string>
+    <string name="age_error">Invalid age. Please enter another one</string>
+    <string name="weight_error">Invalid weight: The weight should not be greater than 100</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="username_error_empty">Username has to be filled</string>
+    <string name="username_already_use">Username is already use</string>
+    <string name="username_error">Username has to contain only letters, numbers and/or "-._" symbols</string>
+    <string name="first_name_error_empty">First name has to be filled</string>
+    <string name="first_name_error">First name has to contain only letters and/or "-" symbol</string>
+    <string name="last_name_error_empty">Last name has to be filled</string>
+    <string name="last_name_error">Last name has to contain only letters and/or "-" symbol</string>
+    <string name="email_error_empty">Email has to be filled</string>
+    <string name="email_error">Your email address is invalid</string>
+    <string name="password_upper_digital_symbols">Password should have at least 8 characters one upper case letter, one digit, and can\'t contain spaces</string>
+    <string name="profile_updated_succesfully">Profile has been successfully updated</string>
+    <string name="confirm_password_error">Passwords do not match</string>
+    <string name="country_error">Error: Country  was not picked!</string>
+    <string-array name="sex_list">
+        <item>M</item>
+        <item>F</item>
+    </string-array>
+</resources>

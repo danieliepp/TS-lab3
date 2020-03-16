@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardview"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardView.Light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_8sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
+    app:cardCornerRadius="@dimen/_4sdp"
+    android:translationZ="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:ignore="ContentDescription">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/participant_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_margin="@dimen/_6sdp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivParticipantPhoto"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/avatar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvParticipantName"
+            android:layout_width="@dimen/_170sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/ivParticipantPhoto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvParticipantBirthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@id/ivParticipantPhoto"
+            app:layout_constraintTop_toBottomOf="@id/tvParticipantName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvParticipantWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@id/ivParticipantPhoto"
+            app:layout_constraintTop_toBottomOf="@id/tvParticipantBirthday" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvParticipantClubName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@id/ivParticipantPhoto"
+            app:layout_constraintTop_toBottomOf="@id/tvParticipantWeight" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvParticipantCoachName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@id/ivParticipantPhoto"
+            app:layout_constraintTop_toBottomOf="@id/tvParticipantClubName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+
