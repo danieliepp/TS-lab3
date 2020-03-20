@@ -2,6 +2,7 @@ package com.example.authentification.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -68,6 +69,11 @@ public class ProfileActivity extends AppCompatActivity{
                     startActivity(intent);
                     break;
                 case R.id.log_out:
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("email", "");
+                    editor.putString("password", "");
+                    editor.apply();
                     Intent loginActivity = new Intent(ProfileActivity.this, LoginActivity.class);
                     loginActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(loginActivity);
@@ -91,7 +97,13 @@ public class ProfileActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         if (id == R.id.log_out_bar) {
+            SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("email", "");
+            editor.putString("password", "");
+            editor.apply();
             Intent loginActivity = new Intent(ProfileActivity.this, LoginActivity.class);
+            loginActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(loginActivity);
         }
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);

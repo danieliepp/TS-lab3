@@ -11,6 +11,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiInterface {
@@ -22,7 +23,7 @@ public interface ApiInterface {
     Call<User> loginUser(@Body HashMap<String, String> map);
 
     @GET("/api/user/get_participants")
-    Call<List<Participant>> getParticipants();
+    Call<List<Participant>> getParticipants(@Header("x-access-token") String token);
 
     @GET("/api/user/get_countries")
     Call<List<Country>> getCountries();
@@ -31,5 +32,6 @@ public interface ApiInterface {
     Call<List<Coach>> getCoaches();
 
     @POST("/api/user/add_participant")
-    Call<String> addParticipant(@Body Participant participant);
+    Call<String> addParticipant(@Header("x-access-token") String token,
+                                @Body Participant participant);
 }

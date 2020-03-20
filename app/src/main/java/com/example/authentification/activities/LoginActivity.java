@@ -1,9 +1,12 @@
 package com.example.authentification.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,12 +29,25 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     private Button signIn;
     private LoginPresenter loginPresenter;
     private View view;
+    private CheckBox remeberMe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         initializeWidgets();
+
+        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+        etEmail.setText(preferences.getString("email", ""));
+        etPassword.setText(preferences.getString("password", ""));
+
+        if(!etEmail.getText().toString().isEmpty() && !etPassword.getText().toString().isEmpty() ) {
+            doLogin();
+        } else {
+            remeberMe.setChecked(false);
+        }
+
+        onRememberMeClick();
         onLoginClick();
         signUp = findViewById(R.id.signUp);
 
@@ -50,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
     }
 
     public void initializeWidgets() {
+        remeberMe = findViewById(R.id.rememberMe);
         signIn = findViewById(R.id.cirLoginButton);
         etEmail = findViewById(R.id.editTextEmail);
         etPassword = findViewById(R.id.editTextPassword);
@@ -60,6 +77,32 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
             @Override
             public void onClick(View view) {
                     doLogin();
+            }
+        });
+    }
+
+    private void onRememberMeClick() {
+        remeberMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked()) {
+
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("email", etEmail.getText().toString().trim());
+                    editor.putString("password", etPassword.getText().toString().trim());
+
+                    editor.apply();
+
+                } else {
+
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("email", "");
+                    editor.putString("password", "");
+                    editor.apply();
+
+                }
             }
         });
     }
@@ -85,7 +128,6 @@ public class LoginActivity extends AppCompatActivity implements ILoginContract.V
 
     @Override
     public void onLoginFailed() {
-        System.out.println(" failed ==========");
         Toast.makeText(this, "Email or password is incorrect", Toast.LENGTH_SHORT).show();
     }
 

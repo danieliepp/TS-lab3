@@ -27,7 +27,7 @@ public class ParticipantPresenter implements IParticipantContract.Presenter {
 
     @Override
     public void getParticipants() {
-        Call<List<Participant>> call = RetrofitClient.getRetrofitInstance().getParticipants();
+        Call<List<Participant>> call = RetrofitClient.getRetrofitInstance().getParticipants(LoginPresenter.token);
         call.enqueue(new Callback<List<Participant>>() {
             @Override
             public void onResponse(@NotNull Call<List<Participant>> call, @NotNull Response<List<Participant>> response) {
@@ -49,7 +49,7 @@ public class ParticipantPresenter implements IParticipantContract.Presenter {
 
     @Override
     public void addParticipant(Participant participant) {
-        Call<String> call = RetrofitClient.getRetrofitInstance().addParticipant(participant);
+        Call<String> call = RetrofitClient.getRetrofitInstance().addParticipant(LoginPresenter.token, participant);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(@NotNull Call<String> call, @NotNull Response<String> response) {

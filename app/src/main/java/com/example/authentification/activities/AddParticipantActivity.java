@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -126,6 +127,11 @@ public class AddParticipantActivity extends AppCompatActivity implements IPartic
                     startActivity(profileIntent);
                     break;
                 case R.id.log_out:
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("email", "");
+                    editor.putString("password", "");
+                    editor.apply();
                     Intent loginActivity = new Intent(AddParticipantActivity.this, LoginActivity.class);
                     loginActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(loginActivity);
@@ -149,7 +155,13 @@ public class AddParticipantActivity extends AppCompatActivity implements IPartic
         int id = item.getItemId();
 
         if (id == R.id.log_out_bar) {
+            SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("email", "");
+            editor.putString("password", "");
+            editor.apply();
             Intent loginActivity = new Intent(AddParticipantActivity.this, LoginActivity.class);
+            loginActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(loginActivity);
         }
         return actionBarDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
